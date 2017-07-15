@@ -22,11 +22,12 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         print(status.text)
+        api.update_status(".@Kansas_Of_NJ " + status.text + " why?") #Can reply anytime a user I am tracking tweets. Need to figure out how to make it so the username isn't hardcoded.
 
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
 
-myStream.filter(track=["dog"])
+myStream.filter(follow=["348260063"], track = ["#spiderman"]) #This will track a specific user by user_id and it will track anytime someone tweets "spiderman"
 
 #for follower in tweepy.Cursor(api.followers).items():
     #follower.follow()
