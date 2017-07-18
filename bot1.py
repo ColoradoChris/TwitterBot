@@ -21,8 +21,9 @@ user_id = "Chris Kansas"
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
-        print(status.text)
-        api.update_status(".@Kansas_Of_NJ " + status.text + " why?") #Can reply anytime a user I am tracking tweets. Need to figure out how to make it so the username isn't hardcoded.
+        #print(status.text)
+        #print(status.user.screen_name)
+        api.update_status("@" + status.user.screen_name + " Spiderman?!? Get me pictures!") 
 
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
