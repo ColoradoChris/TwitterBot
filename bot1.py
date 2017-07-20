@@ -17,13 +17,19 @@ api = tweepy.API(auth)
 
 user_id = "Chris Kansas"
 
+responses = ["Spiderman?! What has that creep been up to?",
+"Spiderman?!?!? Get me some pictures now!",
+"What a menace to society!",
+"Why wear a mask? Why doesn't he show his face?",
+"Spider-Man, Hero or Menace? Exclusive Daily Bugle Photos."]
+
 #api.update_status("#HelloWorld - This is JonahBot's first tweet!")
 class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         #print(status.text)
-        #print(status.user.screen_name)
-        api.update_status("@" + status.user.screen_name + " Spiderman?!? Get me pictures!") 
+        print(status.user.screen_name)
+        api.update_status("@" + status.user.screen_name + " " + responses[randint(0, 4)])
 
 myStreamListener = MyStreamListener()
 myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener)
