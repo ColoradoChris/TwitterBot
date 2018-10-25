@@ -2,11 +2,11 @@
 
 #This will be a twitter bot trial and error - may evolve into something more useful.
 
-import tweepy, time
+import tweepy, time, os
 from random import randint
 
-auth = tweepy.OAuthHandler(process.env.CONSUMER_KEY, process.env.CONSUMER_SECRET)
-auth.set_access_token(process.env.ACCESS_KEY, process.env.ACCESS_SECRET)
+auth = tweepy.OAuthHandler(os.environ["CONSUMER_KEY"], os.environ["CONSUMER_SECRET"])
+auth.set_access_token(os.environ.["ACCESS_KEY"], os.environ.["ACCESS_SECRET"])
 
 api = tweepy.API(auth)
 
