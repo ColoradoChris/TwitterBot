@@ -6,7 +6,7 @@ import tweepy, time, os
 from random import randint
 
 auth = tweepy.OAuthHandler(os.environ["CONSUMER_KEY"], os.environ["CONSUMER_SECRET"])
-auth.set_access_token(os.environ.["ACCESS_KEY"], os.environ.["ACCESS_SECRET"])
+auth.set_access_token(os.environ["ACCESS_KEY"], os.environ["ACCESS_SECRET"])
 
 api = tweepy.API(auth)
 
