@@ -5,13 +5,8 @@
 import tweepy, time
 from random import randint
 
-consumer_key = "7j0MW9w0TpO7GzHlOIlUxTyt9"
-consumer_secret = "8J9bTvQUH9gynASVnrq0wJ4TGrZSFxYlzR5nS5jjyOEYjHEjlT"
-access_key = "885552913522860033-XwXX7V6c5f0VUbHxIVrEa7zXa0ohqP2"
-access_secret = "Z9m1qPXqZAn0gpvf3y4yZLZm0toAyi0MqDkrPAidc7fCJ"
-
-auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_key, access_secret)
+auth = tweepy.OAuthHandler(process.env.CONSUMER_KEY, process.env.CONSUMER_SECRET)
+auth.set_access_token(process.env.ACCESS_KEY, process.env.ACCESS_SECRET)
 
 api = tweepy.API(auth)
 
